@@ -1,49 +1,105 @@
-<section id="project-dog">
-  <h2>🐶 유기견 입양·사후관리 올인원 프로세스</h2>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      color: #333;
+    }
 
-  <p><strong>기간:</strong> 2026.01.15 ~ 2026.02.09</p>
-  <p><strong>역할:</strong> 인프라 · 백엔드 (팀 6인)</p>
+    header {
+      background: #1e272e;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-  <hr/>
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-bottom: 15px;
+    }
 
-  <h3>📌 프로젝트 개요</h3>
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    .tech span {
+      display: inline-block;
+      background: #0984e3;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 5px 5px 0 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+
+  <img src="profile.jpg" alt="profile" class="profile-img" />
+  <h1>김지원</h1>
+  <p>Spring Boot 기반 백엔드 · 인프라 지향 개발자</p>
+</header>
+
+<section>
+  <h2>📌 About Me</h2>
   <p>
-    유기견 입양부터 사후관리까지 이어지는 올인원 서비스입니다.
-    OpenVidu 기반 화상 상담 기능을 포함하여 입양 전 상담 및 이후 관리 프로세스를 지원합니다.
-  </p>
-
-  <h3>🚀 핵심 기여</h3>
-  <ul>
-    <li><strong>CI/CD 구축</strong> – Jenkins 기반 파이프라인 구성으로 배포 자동화 및 재현성 확보</li>
-    <li><strong>배포 인프라 안정화</strong> – Docker Compose · Nginx 설정 정비로 외부 접근 및 라우팅 안정화</li>
-    <li><strong>화상 상담 안정화</strong> – OpenVidu 프록시/CORS/인증서 이슈 해결</li>
-    <li><strong>모니터링 도입</strong> – Prometheus · Grafana 구성으로 운영 가시성 확보</li>
-    <li><strong>스토리지 연동</strong> – AWS S3 업로드 설정 및 검증 API 구현</li>
-    <li><strong>백엔드 품질 개선</strong> – Spring Security · Gradle 설정 정비로 서비스 안정성 향상</li>
-  </ul>
-
-  <h3>🛠 문제 해결 사례</h3>
-
-  <p><strong>1️⃣ 화상 상담 연결 불안정</strong></p>
-  <ul>
-    <li>원인: 프록시 경로/포트/CORS/인증서 설정 충돌</li>
-    <li>조치: Nginx · Docker Compose · OpenVidu 설정 재정비</li>
-    <li>결과: 실서비스 환경에서 화상 상담 연결 안정화</li>
-  </ul>
-
-  <p><strong>2️⃣ 배포 실패 반복</strong></p>
-  <ul>
-    <li>원인: 환경별 설정 불일치</li>
-    <li>조치: Jenkins 파이프라인 구조 개선 및 환경 변수 체계화</li>
-    <li>결과: 배포 재현성 확보 및 실패율 감소</li>
-  </ul>
-
-  <h3>🧰 기술 스택</h3>
-  <p>
-    <strong>CI/CD:</strong> Jenkins<br/>
-    <strong>Infra:</strong> Docker, Docker Compose, Nginx, OpenVidu<br/>
-    <strong>Backend:</strong> Spring Boot, Gradle<br/>
-    <strong>Cloud:</strong> AWS S3<br/>
-    <strong>Monitoring:</strong> Prometheus, Grafana
+    배포 자동화와 운영 안정화에 관심이 있는 백엔드 개발자입니다.
+    CI/CD, Docker 기반 인프라 구성과 서비스 안정성 개선 경험을 보유하고 있습니다.
   </p>
 </section>
+
+<section>
+  <h2>🚀 Project</h2>
+  <h3>🐶 유기견 입양·사후관리 올인원 서비스</h3>
+  <p><strong>역할:</strong> 인프라 · 백엔드</p>
+  <ul>
+    <li>Jenkins 기반 CI/CD 구축</li>
+    <li>Docker Compose · Nginx 설정 안정화</li>
+    <li>OpenVidu 화상 상담 연결 이슈 해결</li>
+    <li>Prometheus · Grafana 모니터링 도입</li>
+    <li>AWS S3 업로드 기능 구현</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🧰 Tech Stack</h2>
+  <div class="tech">
+    <span>Spring Boot</span>
+    <span>Docker</span>
+    <span>Jenkins</span>
+    <span>Nginx</span>
+    <span>OpenVidu</span>
+    <span>AWS S3</span>
+    <span>Prometheus</span>
+    <span>Grafana</span>
+  </div>
+</section>
+
+</body>
+</html>
