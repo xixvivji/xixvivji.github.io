@@ -2,104 +2,432 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>My Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f6fa;
-      color: #333;
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+    :root{
+      --bg:#0b0f1a;
+      --panel:#0f1627;
+      --panel-2:#121a2e;
+      --text:#e7eef9;
+      --muted:#9bb0c9;
+      --accent:#f5c15b;
+      --accent-2:#74c0ff;
+      --border:rgba(255,255,255,0.08);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0; padding:0;}
+    body{
+      font-family:"Noto Sans KR", system-ui, -apple-system, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(116,192,255,0.25), transparent 60%),
+        radial-gradient(800px 400px at 90% 0%, rgba(245,193,91,0.25), transparent 60%),
+        linear-gradient(180deg, #0b0f1a 0%, #0a1222 70%, #0b0f1a 100%);
+      min-height:100vh;
+    }
+    a{color:var(--accent-2); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    .container{max-width:1040px; margin:0 auto; padding:32px 20px 60px;}
+
+    .hero{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:22px;
+      padding:26px;
+      border-radius:20px;
+      background:linear-gradient(145deg, rgba(18,26,46,0.92), rgba(12,18,32,0.92));
+      border:1px solid var(--border);
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+      position:relative;
+      overflow:hidden;
+      animation:fadeUp 520ms ease both;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      right:-120px; top:-120px;
+      width:260px; height:260px;
+      background:radial-gradient(circle, rgba(116,192,255,0.25), transparent 70%);
+      filter:blur(2px);
+    }
+    .avatar{
+      width:120px; height:120px;
+      border-radius:18px;
+      object-fit:cover;
+      border:1px solid var(--border);
+      background:#0b0f1a;
+    }
+    .hero h1{
+      font-family:"Space Grotesk", sans-serif;
+      margin:0; font-size:26px; letter-spacing:0.2px;
+    }
+    .hero p{margin:10px 0 0; color:var(--muted); line-height:1.7;}
+    .hero-meta{margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;}
+    .meta-chip{
+      font-size:12px; font-weight:600;
+      padding:7px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.03);
     }
 
-    header {
-      background: #1e272e;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    .tabbar{
+      margin:18px 0 0;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .tabbtn{
+      appearance:none; border:1px solid var(--border);
+      background:rgba(18,26,46,0.7);
+      color:var(--text); font-weight:600; font-size:13px;
+      padding:10px 14px; border-radius:12px; cursor:pointer;
+      transition:transform 120ms ease, border-color 120ms ease;
+    }
+    .tabbtn:hover{transform:translateY(-1px);}
+    .tabbtn.active{
+      border-color:rgba(245,193,91,0.6);
+      box-shadow:0 0 0 3px rgba(245,193,91,0.14);
     }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      margin-bottom: 15px;
+    .panel{
+      margin-top:14px;
+      padding:24px;
+      border-radius:18px;
+      background:rgba(15,22,39,0.85);
+      border:1px solid var(--border);
+      box-shadow:0 18px 40px rgba(0,0,0,0.35);
+      animation:fadeUp 520ms ease both;
+    }
+    .panel h2{
+      font-family:"Space Grotesk", sans-serif;
+      margin:0 0 14px; font-size:20px;
+    }
+    .panel h3{margin:18px 0 8px; font-size:15px;}
+    .muted{color:var(--muted);}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    .card{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.03);
+      animation:fadeUp 520ms ease both;
+    }
+    .card b{font-size:15px;}
+    .stack{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .pill{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.04);
+    }
+    .proj-head{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+    .proj-head span{font-size:12px; color:var(--muted);}
+    .links{margin-top:12px; display:flex; gap:12px; flex-wrap:wrap;}
+
+    .list{margin:10px 0; padding-left:18px; line-height:1.7;}
+
+    footer{margin-top:24px; text-align:center; color:var(--muted); font-size:12px;}
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(8px);} 
+      to{opacity:1; transform:translateY(0);} 
     }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    ul {
-      line-height: 1.8;
-    }
-
-    .tech span {
-      display: inline-block;
-      background: #0984e3;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 20px;
-      margin: 5px 5px 0 0;
-      font-size: 14px;
+    @media (max-width:760px){
+      .hero{grid-template-columns:1fr; text-align:left;}
+      .avatar{width:96px; height:96px; border-radius:14px;}
+      .grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header class="hero">
+      <img class="avatar" src="profile.jpg.png" alt="profile" />
+      <div>
+        <h1>김지원 — Backend Developer</h1>
+        <p>
+          안정적인 서비스 운영을 목표로 설계와 자동화를 고민하는 백엔드 개발자입니다.
+          성능 최적화, 배포 자동화, 모니터링 기반의 문제 해결에 강점이 있습니다.
+        </p>
+        <div class="hero-meta">
+          <span class="meta-chip">SSAFY 교육 중</span>
+          <span class="meta-chip">백엔드 개발자 희망</span>
+          <span class="meta-chip">Java · Spring Boot · Docker</span>
+        </div>
+      </div>
+    </header>
 
-<header>
+    <nav class="tabbar" role="tablist" aria-label="portfolio tabs">
+      <button class="tabbtn active" data-tab="main" role="tab" aria-selected="true">Main</button>
+      <button class="tabbtn" data-tab="p1" role="tab" aria-selected="false">Project 1</button>
+      <button class="tabbtn" data-tab="p2" role="tab" aria-selected="false">Project 2</button>
+      <button class="tabbtn" data-tab="p3" role="tab" aria-selected="false">Project 3</button>
+    </nav>
 
-  <img src="image.png" alt="profile" class="profile-img" />
-  <h1>김지원</h1>
-  <p>Spring Boot 기반 백엔드 · 인프라 지향 개발자</p>
-</header>
+    <section class="tab" id="main">
+      <h2>Main</h2>
+      <p class="muted">
+        Spring Boot 기반 백엔드 개발자이며, 배포 자동화(CI/CD)·운영 안정화·모니터링을 중심으로 문제를 해결합니다.
+      </p>
 
-<section>
-  <h2>📌 About Me</h2>
-  <p>
-    배포 자동화와 운영 안정화에 관심이 있는 백엔드 개발자입니다.
-    CI/CD, Docker 기반 인프라 구성과 서비스 안정성 개선 경험을 보유하고 있습니다.
-  </p>
-</section>
+      <div class="grid">
+        <div class="card">
+          <b>한 줄 요약</b>
+          <ul class="list">
+            <li><strong>포지션:</strong> Backend · Infra</li>
+            <li><strong>키워드:</strong> CI/CD, Docker/Nginx, 운영 안정화, Observability</li>
+            <li><strong>대표 경험:</strong> OpenVidu 화상 상담 연결 안정화 · Jenkins 파이프라인 구축</li>
+          </ul>
+        </div>
 
-<section>
-  <h2>🚀 Project</h2>
-  <h3>🐶 유기견 입양·사후관리 올인원 서비스</h3>
-  <p><strong>역할:</strong> 인프라 · 백엔드</p>
-  <ul>
-    <li>Jenkins 기반 CI/CD 구축</li>
-    <li>Docker Compose · Nginx 설정 안정화</li>
-    <li>OpenVidu 화상 상담 연결 이슈 해결</li>
-    <li>Prometheus · Grafana 모니터링 도입</li>
-    <li>AWS S3 업로드 기능 구현</li>
-  </ul>
-</section>
+        <div class="card">
+          <b>기본 정보</b>
+          <ul class="list">
+            <li><strong>이름:</strong> 김지원</li>
+            <li><strong>이메일:</strong> <a href="mailto:kjw3558@naver.com">kjw3558@naver.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/xixvivji" target="_blank" rel="noopener">github.com/xixvivji</a></li>
+            <li><strong>교육:</strong> SSAFY (2025.07 ~ )</li>
+          </ul>
+        </div>
+      </div>
 
-<section>
-  <h2>🧰 Tech Stack</h2>
-  <div class="tech">
-    <span>Spring Boot</span>
-    <span>Docker</span>
-    <span>Jenkins</span>
-    <span>Nginx</span>
-    <span>OpenVidu</span>
-    <span>AWS S3</span>
-    <span>Prometheus</span>
-    <span>Grafana</span>
+      <h3>기술 스택</h3>
+
+      <div class="card" style="margin-top:12px;">
+        <b>⭐ 주력</b>
+        <div class="stack">
+          <span class="pill">Java</span>
+          <span class="pill">Spring Boot</span>
+          <span class="pill">JPA</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">Docker</span>
+          <span class="pill">Nginx</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <b>✅ 프로젝트 경험</b>
+        <div class="stack">
+          <span class="pill">Jenkins</span>
+          <span class="pill">Docker Compose</span>
+          <span class="pill">Redis</span>
+          <span class="pill">AWS (EC2/RDS/S3)</span>
+          <span class="pill">Prometheus</span>
+          <span class="pill">Grafana</span>
+          <span class="pill">GitHub Actions</span>
+          <span class="pill">OpenVidu</span>
+          <span class="pill">Swagger</span>
+          <span class="pill">Spring Security</span>
+        </div>
+      </div>
+
+      <h3>핵심 강점</h3>
+      <ul class="list">
+        <li>환경별 설정을 정리해 <strong>재현 가능한 배포</strong> 흐름을 만드는 것에 강점</li>
+        <li>프록시/포트/CORS/인증서 등 운영 이슈를 <strong>원인 분리 → 단계적 검증</strong>으로 해결</li>
+        <li>모니터링 지표 기반으로 장애 원인을 추적하고 개선하는 경험 보유</li>
+      </ul>
+    </section>
+
+
+    <section class="tab" id="p1" style="display:none;">
+        <h2>Project 1</h2>
+        <div class="card">
+          <div class="proj-head">
+            <b>냠냠코치 (YumYum Coach)</b>
+            <span>2025.11 ~ 2025.12 · 2인 · 역할: Backend / Infra</span>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0;">
+            AI 기반 개인 맞춤형 식단 분석 & 그룹 경쟁 플랫폼.
+            식단 이미지 분석, 영양 리포트, 건강 점수 기반 랭킹 기능을 제공합니다.
+          </p>
+
+          <h3>핵심 기여</h3>
+          <ul class="list">
+            <li>이미지 업로드 → 분석 → DB 저장 → 리포트 생성까지의 비동기 처리 흐름 설계</li>
+            <li>TDEE 및 영양소 계산 기반 개인화 추천 로직 구현</li>
+            <li>Redis 캐싱 적용으로 랭킹 조회 성능 개선</li>
+            <li>AWS EC2/RDS/S3 + Docker 기반 배포 및 GitHub Actions CI/CD 구축</li>
+            <li>Nginx Reverse Proxy 구성 및 HTTPS 적용</li>
+          </ul>
+
+          <h3>트러블슈팅</h3>
+          <ul class="list">
+            <li>
+              <strong>이미지 분석 요청 병목 문제</strong> :
+              이미지 업로드 요청이 동기 처리되어 응답 지연 발생 →
+              분석 로직을 비동기 처리하고 DB 저장 시점을 분리해 응답 시간 단축
+            </li>
+            <li>
+              <strong>랭킹 조회 성능 저하</strong> :
+              사용자 증가 시 집계 쿼리 부하 발생 →
+              Redis 캐싱 적용 및 주기적 갱신 전략으로 조회 속도 개선
+            </li>
+          </ul>
+
+          <h3>스택</h3>
+          <div class="stack">
+            <span class="pill">Java 17</span>
+            <span class="pill">Spring Boot</span>
+            <span class="pill">JPA</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Redis</span>
+            <span class="pill">Docker</span>
+            <span class="pill">GitHub Actions</span>
+            <span class="pill">Nginx</span>
+            <span class="pill">AWS</span>
+          </div>
+
+          <div class="links">
+            <a href="https://github.com/xixvivji/bapai" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab" id="p2" style="display:none;">
+        <h2>Project 2</h2>
+        <div class="card">
+          <div class="proj-head">
+            <b>전국 여행 플래너</b>
+            <span>2인 · 역할: Backend</span>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0;">
+            관광지 검색, 여행 일정 저장, Hotplace 공유가 가능한 웹 애플리케이션.
+          </p>
+
+          <h3>핵심 기여</h3>
+          <ul class="list">
+            <li>MVC 패턴 기반 계층 구조 설계 (Controller → Service → DAO → DTO)</li>
+            <li>회원 인증/세션 관리 로직 구현</li>
+            <li>여행 일정 경로 저장 및 조회 기능 구현</li>
+            <li>게시판 CRUD 및 검색 기능 구현</li>
+          </ul>
+
+          <h3>트러블슈팅</h3>
+          <ul class="list">
+            <li>
+              <strong>세션 인증 누락 문제</strong> :
+              로그인 상태 검증이 Controller마다 중복 구현 →
+              Filter 기반 공통 인증 처리로 구조 개선
+            </li>
+            <li>
+              <strong>DB 연결 누수 문제</strong> :
+              JDBC 자원 해제 누락으로 커넥션 풀 고갈 →
+              try-with-resources 적용으로 안정성 확보
+            </li>
+          </ul>
+
+          <h3>스택</h3>
+          <div class="stack">
+            <span class="pill">Java</span>
+            <span class="pill">Servlet</span>
+            <span class="pill">JSP</span>
+            <span class="pill">JDBC</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Tomcat</span>
+            <span class="pill">MVC</span>
+          </div>
+
+          <div class="links">
+            <a href="https://github.com/xixvivji/trip" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="tab" id="p3" style="display:none;">
+        <h2>Project 3</h2>
+        <div class="card">
+          <div class="proj-head">
+            <b>🐶 유기견 입양·사후관리 올인원 프로세스</b>
+            <span>2026.01.15 ~ 2026.02.09 · 역할: Infra / Backend (팀 6인)</span>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0;">
+            유기견 입양부터 사후관리까지 이어지는 올인원 서비스로, OpenVidu 기반 화상 상담 기능을 포함해
+            입양 전 상담 및 이후 관리 프로세스를 지원합니다.
+          </p>
+
+          <h3>핵심 기여</h3>
+          <ul class="list">
+            <li><strong>CI/CD 구축 및 개선</strong>: Jenkinsfile 기반 빌드·배포 파이프라인 구성, 환경별 설정 정리로 배포 재현성 확보</li>
+            <li><strong>배포 인프라 안정화</strong>: Docker Compose 서비스 구성 정비, 포트/외부 접근 정책 정리</li>
+            <li><strong>Nginx 프록시/라우팅</strong>: 라우팅·프록시·Swagger 노출 제어 등 운영 환경 최적화</li>
+            <li><strong>OpenVidu 운영 안정화</strong>: 프록시/서브경로/포트/CORS/버전/인증서 이슈를 단계적으로 해결해 화상 상담 연결 안정화</li>
+            <li><strong>모니터링 도입</strong>: Prometheus · Grafana 설정 추가로 운영 지표 가시화 및 장애 추적 비용 절감</li>
+            <li><strong>AWS S3 연동</strong>: S3 설정 및 업로드 흐름 검증용 테스트 컨트롤러 구현</li>
+            <li><strong>백엔드 안정화</strong>: Spring Security/Swagger/Gradle 설정 정비 및 서비스 로직 오류 수정</li>
+          </ul>
+
+          <h3>문제 해결 (트러블슈팅)</h3>
+          <ul class="list">
+            <li>
+              <strong>OpenVidu 연결 실패</strong>:
+              프록시 경로/서브경로·포트 구성·CORS·인증서 옵션을 분리해 원인을 추적하고
+              Nginx/Docker Compose/OpenVidu 설정을 재정비하여 실서비스 연결 안정화
+            </li>
+            <li>
+              <strong>환경별 배포 불일치</strong>:
+              Jenkins 파이프라인에 환경 변수/설정 체계를 반영해 배포 재현성과 안정성을 확보
+            </li>
+            <li>
+              <strong>운영 지표 부재</strong>:
+              Prometheus·Grafana를 도입해 운영 상태를 지표로 확인 가능하게 구성, 장애 원인 파악 속도 개선
+            </li>
+          </ul>
+
+          <h3>스택</h3>
+          <div class="stack">
+            <span class="pill">Jenkins</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Docker Compose</span>
+            <span class="pill">Nginx</span>
+            <span class="pill">OpenVidu</span>
+            <span class="pill">Spring Boot</span>
+            <span class="pill">Gradle</span>
+            <span class="pill">AWS S3</span>
+            <span class="pill">Prometheus</span>
+            <span class="pill">Grafana</span>
+          </div>
+
+          <div class="links">
+            <!-- 레포 링크 있으면 넣고, 없으면 # 유지 -->
+            <a href="#" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" target="_blank" rel="noopener">Demo(추후)</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© 2026 · Built with GitHub Pages</footer>
   </div>
-</section>
 
+  <script>
+    const buttons = document.querySelectorAll(".tabbtn");
+    const tabs = document.querySelectorAll(".tab");
+
+    function showTab(id){
+      tabs.forEach(t => t.style.display = (t.id === id ? "block" : "none"));
+      buttons.forEach(b => {
+        const active = b.dataset.tab === id;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      history.replaceState(null, "", "#" + id);
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => showTab(btn.dataset.tab));
+    });
+
+    const initial = (location.hash || "#main").replace("#", "");
+    showTab(document.getElementById(initial) ? initial : "main");
+  </script>
 </body>
 </html>
