@@ -245,25 +245,24 @@
 <body>
 <div class="container">
   <header class="hero">
-    <!-- ✅ 레포 루트에 image.png 업로드 -->
     <img class="avatar" src="image.png" alt="profile" />
     <div>
-      <h1>김지원 — Backend · Infra</h1>
+      <h1>김지원 — Backend · Infra · AI Serving</h1>
       <p>
-        Spring Boot 기반 백엔드 개발자이며, 배포 자동화(CI/CD)와 운영 안정화를 중심으로 문제를 해결합니다.<br>
-        프록시/포트/CORS/인증서 등 운영 이슈를 원인 분리 → 단계적 검증으로 안정화한 경험이 있습니다.
+        Java/Spring Boot 기반 백엔드 개발자입니다.<br>
+        API 구현에서 끝내지 않고, 캐싱·실시간 처리·배포 자동화·운영 장애 진단까지 서비스가 실제로 안정적으로 동작하는 구조를 고민합니다.
       </p>
 
       <div class="hero-meta">
-        <span class="meta-chip">SSAFY (2025.07 ~ )</span>
         <span class="meta-chip">Java · Spring Boot</span>
-        <span class="meta-chip">Docker · Nginx · CI/CD</span>
+        <span class="meta-chip">Docker · Nginx · Jenkins</span>
+        <span class="meta-chip">SSAFY 2025.07 - 2026.06</span>
       </div>
 
       <div class="hero-actions">
-        <a class="btn accent" href="mailto:kjw3558@naver.com">📮 Email</a>
+        <a class="btn accent" href="mailto:kjw3568@naver.com">Email</a>
         <a class="btn primary" href="https://github.com/xixvivji" target="_blank" rel="noopener">💻 GitHub</a>
-        <a class="btn ghost" href="#contact">🔗 Links</a>
+        <a class="btn ghost" href="#projects">Projects</a>
       </div>
     </div>
   </header>
@@ -271,304 +270,162 @@
   <nav class="tabbar" role="navigation" aria-label="portfolio navigation">
     <a href="#main" class="tabbtn active">Main</a>
     <a href="#skills" class="tabbtn">Skills</a>
-    <a href="#p1" class="tabbtn">냠냠코치</a>
-    <a href="#p2" class="tabbtn">여행 플래너</a>
-    <a href="#p3" class="tabbtn">유기견 플랫폼</a>
+    <a href="#projects" class="tabbtn">Projects</a>
     <a href="#contact" class="tabbtn">Contact</a>
   </nav>
 
   <main class="panel">
-    <!-- MAIN -->
     <section id="main">
       <h2>Main</h2>
-      <p class="muted">기본 정보, 학력, 그리고 한 줄 요약</p>
+      <p class="muted">백엔드, 인프라, AI Serving 경험을 중심으로 정리했습니다.</p>
 
       <div class="grid">
         <div class="card">
           <b>Profile</b>
           <ul class="list">
             <li><strong>이름:</strong> 김지원</li>
-            <li><strong>희망 직무:</strong> 백엔드 개발자 (Backend · Infra)</li>
-            <li><strong>이메일:</strong> <a href="mailto:kjw3558@naver.com">kjw3558@naver.com</a></li>
+            <li><strong>희망 직무:</strong> Backend · Infra</li>
+            <li><strong>Email:</strong> <a href="mailto:kjw3568@naver.com">kjw3568@naver.com</a></li>
             <li><strong>GitHub:</strong> <a href="https://github.com/xixvivji" target="_blank" rel="noopener">github.com/xixvivji</a></li>
-            <li><strong>교육:</strong> SSAFY (2025.07 ~ )</li>
           </ul>
-
-          <div class="badge-line">
-            <span class="pill">CI/CD</span>
-            <span class="pill">운영 안정화</span>
-            <span class="pill">모니터링</span>
-            <span class="pill">트러블슈팅</span>
-          </div>
         </div>
 
         <div class="card">
           <b>Education</b>
           <ul class="list">
-            <li><strong>전남대학교</strong> 영어영문학과 (주전공)</li>
-            <li>부전공: 소프트웨어공학과</li>
-            <li>학점: 3.86 / 4.5</li>
-          </ul>
-
-          <h3 style="margin-top:14px;">Highlights</h3>
-          <ul class="list">
-            <li>배포 자동화로 재현 가능한 배포 흐름 구축 경험</li>
-            <li>프록시/포트/CORS/인증서 이슈를 원인 분리하여 해결</li>
-            <li>지표 기반 운영(Observability) 도입 경험</li>
+            <li><strong>전남대학교</strong> 영어영문학과 / 소프트웨어공학과 부전공</li>
+            <li>2018.03 - 2025.08 · GPA 3.86/4.5</li>
+            <li><strong>삼성청년SW·AI아카데미(SSAFY)</strong> · 2025.07 - 2026.06</li>
           </ul>
         </div>
       </div>
 
       <div class="card two-cards">
-        <b>One-liner</b>
-        <p class="muted" style="margin:10px 0 0; line-height:1.7;">
-          배포 자동화(CI/CD)와 운영 안정화를 함께 고민하며, 문제를 원인 단위로 분리해 빠르게 안정화하는 백엔드 개발자입니다.
-        </p>
-        <div class="badge-line">
-          <span class="pill">CI/CD 파이프라인 구축</span>
-          <span class="pill">Docker/Nginx 운영</span>
-          <span class="pill">OpenVidu 트러블슈팅</span>
-          <span class="pill">Prometheus/Grafana 모니터링</span>
-        </div>
+        <b>About</b>
+        <ul class="list">
+          <li>Java/Spring Boot 기반으로 REST API, 인증, 데이터 모델링, 거래/상태 흐름을 구현해왔습니다.</li>
+          <li>Redis 캐싱, WebSocket/STOMP, FCM을 활용해 반복 요청과 실시간 알림 흐름을 개선했습니다.</li>
+          <li>Docker, Nginx, Jenkins, AWS EC2 기반으로 배포 자동화와 운영 환경 문제 해결을 경험했습니다.</li>
+          <li>AI 서비스에서는 데이터 수집/라벨링, 모델 개선, 추론 서버 폴백 구조까지 함께 설계했습니다.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
       <h2>Skills</h2>
-      <p class="muted">주력 기술과 프로젝트 경험을 구분해 정리했습니다.</p>
+      <p class="muted">핵심 기술만 간결하게 정리했습니다.</p>
 
-      <div class="split">
+      <div class="grid">
         <div class="card">
-          <b>⭐ 주력</b>
+          <b>Backend</b>
           <div class="stack">
             <span class="pill">Java</span>
             <span class="pill">Spring Boot</span>
-            <span class="pill">JPA</span>
-            <span class="pill">MySQL</span>
-            <span class="pill">Redis</span>
-            <span class="pill">Docker</span>
-            <span class="pill">Nginx</span>
           </div>
-          <ul class="list">
-            <li>Spring 기반 API 설계/구현, 계층 분리(Controller/Service/Repository) 및 설정 관리</li>
-            <li>Redis 캐싱/집계 구조를 통한 조회 성능 개선 경험</li>
-            <li>Docker/Nginx 기반 배포 구성 및 라우팅/접근 제어 구성</li>
-          </ul>
         </div>
 
         <div class="card">
-          <b>✅ 프로젝트 경험</b>
+          <b>Database / Cache</b>
           <div class="stack">
-            <span class="pill">Jenkins</span>
-            <span class="pill">GitHub Actions</span>
-            <span class="pill">Docker Compose</span>
-            <span class="pill">AWS (EC2/RDS/S3)</span>
-            <span class="pill">Prometheus</span>
-            <span class="pill">Grafana</span>
-            <span class="pill">OpenVidu</span>
-            <span class="pill">Spring Security</span>
-            <span class="pill">Swagger</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Redis</span>
           </div>
-          <ul class="list">
-            <li>CI/CD 자동화(Jenkins/GitHub Actions) 및 환경 변수/설정 체계화</li>
-            <li>OpenVidu 운영 이슈(프록시/포트/CORS/인증서) 원인 분석 후 안정화</li>
-            <li>Prometheus/Grafana로 운영 지표 수집 및 대시보드 구성</li>
-          </ul>
         </div>
-      </div>
 
-      <div class="card" style="margin-top:16px;">
-        <b>내가 강한 문제 유형</b>
-        <ul class="list">
-          <li>환경별 설정 불일치로 인한 배포 실패/재현성 문제</li>
-          <li>프록시/라우팅/포트/CORS/인증서 같은 운영 레벨 이슈</li>
-          <li>지표 부재로 인한 장애 원인 파악 어려움 → 모니터링 도입</li>
-        </ul>
+        <div class="card">
+          <b>Infra / DevOps</b>
+          <div class="stack">
+            <span class="pill">AWS EC2</span>
+            <span class="pill">AWS S3</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Nginx</span>
+            <span class="pill">Jenkins</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <b>AI / Data</b>
+          <div class="stack">
+            <span class="pill">Python</span>
+            <span class="pill">FastAPI</span>
+            <span class="pill">PyTorch</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- P1 -->
-    <section id="p1">
-      <h2>냠냠코치 (YumYum Coach)</h2>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="muted">대표 프로젝트만 짧게 정리했습니다.</p>
 
       <div class="card">
         <div class="proj-head">
-          <b>냠냠코치 (YumYum Coach)</b>
-          <span>2025.11 ~ 2025.12 · 2인 · 역할: Backend / Infra</span>
+          <b>MUNG! - 유기견 입양·사후관리 통합 플랫폼</b>
+          <span>2026.01 - 2026.02 · 6명</span>
         </div>
-
-        <p class="muted" style="margin:10px 0 0;">
-          AI 기반 개인 맞춤형 식단 분석 & 그룹 경쟁 플랫폼. 식단 이미지 분석, 영양 리포트, 건강 점수 기반 랭킹 기능을 제공합니다.
-        </p>
-
-        <h3>핵심 기여</h3>
         <ul class="list">
-          <li>이미지 업로드 → 분석 → DB 저장 → 리포트 생성까지의 파이프라인 구성</li>
-          <li>TDEE/영양 데이터 기반 리포트 기능 구현</li>
-          <li>Redis 캐싱을 활용한 랭킹/집계 조회 성능 개선 설계</li>
-          <li>AWS(EC2/RDS/S3) + Docker 배포 구성 및 GitHub Actions 기반 CI/CD 자동화</li>
-          <li>Nginx Reverse Proxy 구성 및 운영 환경 안정화</li>
+          <li><strong>역할:</strong> Backend 30%, Infra/DevOps 100%</li>
+          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/mung-shall" target="_blank" rel="noopener">xixvivji/mung-shall</a></li>
+          <li>입양 신청부터 단계 승인, 체크리스트, 사후관리, 화상 상담까지 하나의 프로세스로 연결한 플랫폼입니다.</li>
         </ul>
-
-        <h3>트러블슈팅</h3>
-        <ul class="list">
-          <li><strong>분석 처리 병목</strong>: 동기 처리로 인한 응답 지연 → 분석/저장 단계를 분리해 응답 지연 완화</li>
-          <li><strong>랭킹 집계 부하</strong>: 집계 쿼리 부하 증가 → Redis 캐싱 + 갱신 전략으로 조회 성능 개선</li>
-        </ul>
-
-        <h3>스택</h3>
-        <div class="stack">
-          <span class="pill">Java 17</span>
-          <span class="pill">Spring Boot</span>
-          <span class="pill">JPA</span>
-          <span class="pill">MySQL (RDS)</span>
-          <span class="pill">Redis</span>
-          <span class="pill">Docker</span>
-          <span class="pill">GitHub Actions</span>
-          <span class="pill">Nginx</span>
-          <span class="pill">AWS EC2</span>
-          <span class="pill">AWS S3</span>
-        </div>
-
-        <div class="links">
-          <a class="btn primary" href="https://github.com/xixvivji/bapai" target="_blank" rel="noopener">💻 GitHub Repo</a>
-          <a class="btn ghost" href="#contact">🔗 Contact</a>
-        </div>
       </div>
-    </section>
 
-    <!-- P2 -->
-    <section id="p2">
-      <h2>전국 여행 플래너</h2>
-
-      <div class="card">
+      <div class="card two-cards">
         <div class="proj-head">
-          <b>전국 여행 플래너</b>
-          <span>2인 · 역할: Backend</span>
+          <b>Z멋대로 - 숏폼 기반 AI 투자·그룹 공동 투자 플랫폼</b>
+          <span>2026.03 - 2026.04 · 6명</span>
         </div>
-
-        <p class="muted" style="margin:10px 0 0;">
-          관광지 검색, 여행 일정 저장, Hotplace 공유가 가능한 웹 애플리케이션.
-        </p>
-
-        <h3>핵심 기여</h3>
         <ul class="list">
-          <li>MVC 패턴 기반 계층 설계 (Controller → Service → DAO → DTO)</li>
-          <li>회원 인증/세션 관리 로직 구현</li>
-          <li>관광지 검색/조회 및 여행 경로/일정 저장 기능 구현</li>
-          <li>게시판 CRUD 및 Hotplace 등록/공유 기능 구현</li>
-          <li>Filter 기반 인증 공통 처리 구조 경험</li>
+          <li><strong>역할:</strong> Backend / Infra</li>
+          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/z-invest" target="_blank" rel="noopener">xixvivji/z-invest</a></li>
+          <li>숏폼 투자 피드, AI 종목 리포트, 개인 투자 관리, 그룹 공동 투자, 실시간 주식 정보를 제공하는 투자 플랫폼입니다.</li>
         </ul>
-
-        <h3>트러블슈팅</h3>
-        <ul class="list">
-          <li><strong>세션 인증 중복</strong>: 컨트롤러마다 체크 로직 분산 → Filter로 공통 인증 처리 구조화</li>
-          <li><strong>JDBC 자원 누수 위험</strong>: 자원 해제 누락 가능 → try-with-resources 적용으로 안정성 확보</li>
-        </ul>
-
-        <h3>스택</h3>
-        <div class="stack">
-          <span class="pill">Java</span>
-          <span class="pill">Servlet</span>
-          <span class="pill">JSP</span>
-          <span class="pill">Tomcat</span>
-          <span class="pill">JDBC</span>
-          <span class="pill">MySQL</span>
-          <span class="pill">MVC</span>
-        </div>
-
-        <div class="links">
-          <a class="btn primary" href="https://github.com/xixvivji/trip" target="_blank" rel="noopener">💻 GitHub Repo</a>
-          <a class="btn ghost" href="#contact">🔗 Contact</a>
-        </div>
       </div>
-    </section>
 
-    <!-- P3 -->
-    <section id="p3">
-      <h2>유기견 입양·사후관리 올인원 프로세스</h2>
-
-      <div class="card">
+      <div class="card two-cards">
         <div class="proj-head">
-          <b>🐶 유기견 입양·사후관리 올인원 프로세스</b>
-          <span>2026.01.15 ~ 2026.02.09 · 역할: Infra / Backend (팀 6인)</span>
+          <b>LUMEN / SmartCane - AI 기반 시각장애인 보행 안전 서비스</b>
+          <span>2026.04 - 2026.05 · 6명</span>
         </div>
-
-        <p class="muted" style="margin:10px 0 0;">
-          유기견 입양부터 사후관리까지 이어지는 서비스로, OpenVidu 기반 화상 상담 기능을 포함해
-          입양 전 상담 및 이후 관리 프로세스를 지원합니다.
-        </p>
-
-        <h3>핵심 기여</h3>
         <ul class="list">
-          <li><strong>CI/CD 구축</strong>: Jenkinsfile 기반 빌드·배포 파이프라인 구성, 환경별 설정 정리로 재현성 확보</li>
-          <li><strong>배포 인프라 안정화</strong>: Docker Compose 구성 정비, 포트/외부 접근 정책 정리, Nginx 라우팅/접근 제어</li>
-          <li><strong>OpenVidu 운영 안정화</strong>: 프록시/서브경로/포트/CORS/버전/인증서 이슈를 단계적으로 해결</li>
-          <li><strong>모니터링 도입</strong>: Prometheus · Grafana로 운영 지표 가시화 및 장애 추적 비용 절감</li>
-          <li><strong>AWS S3 연동</strong>: 업로드 흐름 검증용 테스트 API 구현</li>
-          <li><strong>백엔드 안정화</strong>: 보안/Swagger/Gradle 설정 정비 및 서비스 로직 오류 수정</li>
+          <li><strong>역할:</strong> AI 모델·데이터·인프라</li>
+          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/C102_LUMEN_PROJECT" target="_blank" rel="noopener">xixvivji/C102_LUMEN_PROJECT</a></li>
+          <li>카메라 기반으로 보도, 차도, 점자블록, 횡단보도, 신호등, 장애물 등 보행 위험 요소를 감지하고 음성/햅틱 피드백을 제공하는 서비스입니다.</li>
         </ul>
+      </div>
 
-        <h3>트러블슈팅</h3>
+      <div class="card two-cards">
+        <div class="proj-head">
+          <b>Fintech Mock Investing Platform - 리그형 모의투자 서비스</b>
+          <span>Personal Project</span>
+        </div>
         <ul class="list">
-          <li><strong>OpenVidu 연결 실패</strong>: 프록시/포트/CORS/인증서 원인 분리 후 Nginx·Compose·OpenVidu 설정 재정비로 연결 안정화</li>
-          <li><strong>환경별 배포 불일치</strong>: Jenkins 파이프라인에 환경 변수 체계를 반영해 배포 재현성 확보</li>
-          <li><strong>운영 지표 부재</strong>: Prometheus·Grafana 도입으로 장애 원인 파악 속도 개선</li>
+          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/fintech-project" target="_blank" rel="noopener">xixvivji/fintech-project</a></li>
+          <li>공용 리그 날짜를 기준으로 과거 시세를 리플레이하며 여러 사용자가 같은 시점에서 경쟁하는 모의투자 서비스입니다.</li>
         </ul>
-
-        <h3>스택</h3>
-        <div class="stack">
-          <span class="pill">Jenkins</span>
-          <span class="pill">Docker</span>
-          <span class="pill">Docker Compose</span>
-          <span class="pill">Nginx</span>
-          <span class="pill">OpenVidu</span>
-          <span class="pill">Spring Boot</span>
-          <span class="pill">Gradle</span>
-          <span class="pill">AWS S3</span>
-          <span class="pill">Prometheus</span>
-          <span class="pill">Grafana</span>
-        </div>
-
-        <div class="links">
-          <a class="btn ghost" href="https://github.com/xixvivji/mung-shall.git" target="_blank" rel="noopener">💻 GitHub Repo </a>
-          <a class="btn ghost" href="#contact">🔗 Contact</a>
-        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
       <p class="muted">연락처 및 주요 링크</p>
 
       <div class="grid">
         <div class="card">
-          <b>연락처</b>
+          <b>Links</b>
           <ul class="list">
-            <li><strong>Email:</strong> <a href="mailto:kjw3558@naver.com">kjw3558@naver.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:kjw3568@naver.com">kjw3568@naver.com</a></li>
             <li><strong>GitHub:</strong> <a href="https://github.com/xixvivji" target="_blank" rel="noopener">github.com/xixvivji</a></li>
             <li><strong>Portfolio:</strong> <a href="https://xixvivji.github.io" target="_blank" rel="noopener">xixvivji.github.io</a></li>
           </ul>
-          <div class="badge-line">
-            <span class="pill">Open to work</span>
-            <span class="pill dim">Backend · Infra</span>
-          </div>
         </div>
 
         <div class="card">
-          <b>Projects</b>
-          <ul class="list">
-            <li><strong>냠냠코치:</strong> <a href="https://github.com/xixvivji/bapai" target="_blank" rel="noopener">github.com/xixvivji/bapai</a></li>
-            <li><strong>여행 플래너:</strong> <a href="https://github.com/xixvivji/trip" target="_blank" rel="noopener">github.com/xixvivji/trip</a></li>
-            <li><strong>유기견 플랫폼:</strong> <a href="https://github.com/xixvivji/mung-shall.git" target="_blank" rel="noopener">github.com/xixvivji/mung-shall</a></li>
-          </ul>
-
-          <h3 style="margin-top:14px;">Optional</h3>
+          <b>Algorithm</b>
           <ul class="list">
             <li><strong>BOJ:</strong> <a href="https://www.acmicpc.net/user/kjw96041938" target="_blank" rel="noopener">acmicpc.net/user/kjw96041938</a></li>
-            <li><strong>Solved.ac:</strong> <a href="https://solved.ac/kjw96041938" target="_blank" rel="noopener">solved.ac/kjw96041938</a></li>
+            <li><strong>Solved.ac:</strong> <a href="https://solved.ac/profile/kjw96041938" target="_blank" rel="noopener">solved.ac/profile/kjw96041938</a></li>
           </ul>
         </div>
       </div>
