@@ -357,18 +357,47 @@
 
     <section id="projects">
       <h2>Featured Projects</h2>
-      <p class="muted">대표 프로젝트만 짧게 정리했습니다.</p>
+      <p class="muted">프로젝트별 문제 정의, 담당 역할, 구현 포인트를 정리했습니다.</p>
 
       <div class="card">
         <div class="proj-head">
           <b>MUNG! - 유기견 입양·사후관리 통합 플랫폼</b>
           <span>2026.01 - 2026.02 · 6명</span>
         </div>
+        <p class="muted" style="margin:10px 0 0;">
+          보호소, 입양자, 봉사자가 입양 신청부터 화상 상담과 사후관리까지 한 흐름에서 처리할 수 있는 플랫폼입니다.
+        </p>
+        <h3>담당 역할</h3>
         <ul class="list">
-          <li><strong>역할:</strong> Backend 30%, Infra/DevOps 100%</li>
-          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/mung-shall" target="_blank" rel="noopener">xixvivji/mung-shall</a></li>
-          <li>입양 신청부터 단계 승인, 체크리스트, 사후관리, 화상 상담까지 하나의 프로세스로 연결한 플랫폼입니다.</li>
+          <li>Backend 30%, Infra/DevOps 100%</li>
+          <li>입양 단계 상태 전환, RBAC 접근 제어, 운영 배포 구조, OpenVidu 화상 상담 환경 담당</li>
         </ul>
+        <h3>구현 포인트</h3>
+        <ul class="list">
+          <li>입양 6단계 프로세스를 상태 기반 모델로 설계하고 보호소/입양자/관리자 권한을 분리했습니다.</li>
+          <li>OpenVidu를 별도 EC2에서 운영하고, Nginx 경로 기반 라우팅으로 API 트래픽과 WebRTC 트래픽을 분리했습니다.</li>
+          <li>Jenkins, Docker Compose, Nginx를 이용해 배포 파이프라인과 운영 진입점을 구성했습니다.</li>
+          <li>Prometheus/Grafana 모니터링을 도입해 서버 상태와 장애 추적 지표를 확인할 수 있게 했습니다.</li>
+        </ul>
+        <h3>트러블슈팅</h3>
+        <ul class="list">
+          <li>EC2 배포 후 화상 상담 연결 실패를 보안 그룹, 포트 요구사항, Nginx 라우팅 문제로 분리해 진단했습니다.</li>
+          <li>SDK와 서버 버전 불일치로 인한 연결 불안정성을 동일 계열 버전으로 고정해 완화했습니다.</li>
+        </ul>
+        <div class="stack">
+          <span class="pill">Spring Boot</span>
+          <span class="pill">JPA</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">Docker</span>
+          <span class="pill">Nginx</span>
+          <span class="pill">Jenkins</span>
+          <span class="pill">OpenVidu</span>
+          <span class="pill">Prometheus</span>
+          <span class="pill">Grafana</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/xixvivji/mung-shall" target="_blank" rel="noopener">GitHub Repo</a>
+        </div>
       </div>
 
       <div class="card two-cards">
@@ -376,11 +405,38 @@
           <b>Z멋대로 - 숏폼 기반 AI 투자·그룹 공동 투자 플랫폼</b>
           <span>2026.03 - 2026.04 · 6명</span>
         </div>
+        <p class="muted" style="margin:10px 0 0;">
+          숏폼 콘텐츠, AI 종목 리포트, 실시간 시세, 개인/그룹 투자 흐름을 연결한 투자 플랫폼입니다.
+        </p>
+        <h3>담당 역할</h3>
         <ul class="list">
-          <li><strong>역할:</strong> Backend / Infra</li>
-          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/z-invest" target="_blank" rel="noopener">xixvivji/z-invest</a></li>
-          <li>숏폼 투자 피드, AI 종목 리포트, 개인 투자 관리, 그룹 공동 투자, 실시간 주식 정보를 제공하는 투자 플랫폼입니다.</li>
+          <li>Backend / Infra</li>
+          <li>KIS 주식 API 연동, 시세 스케줄링, 매수/매도 거래 흐름, FCM 알림, DB 구조 설계 담당</li>
         </ul>
+        <h3>구현 포인트</h3>
+        <ul class="list">
+          <li>주식 시세 동기화와 주문/보유/관심종목 도메인을 Spring Boot 기반 API로 구현했습니다.</li>
+          <li>반복 Polling으로 발생하던 지연과 요청 부하를 줄이기 위해 WebSocket/STOMP 기반 Push 구조를 적용했습니다.</li>
+          <li>FCM을 활용해 투자 관련 알림 흐름을 구성하고, Redis TTL 캐싱으로 반복 조회 부담을 낮췄습니다.</li>
+          <li>AI 서버와 백엔드 API를 분리해 숏폼 STT/요약/종목 리포트 흐름이 확장 가능하도록 구성했습니다.</li>
+        </ul>
+        <h3>성과</h3>
+        <ul class="list">
+          <li>Redis 캐싱 적용으로 주요 조회 API 응답 속도를 약 480ms에서 90ms 수준으로 개선했습니다.</li>
+          <li>실시간 요구사항을 전송 방식, 캐싱, 알림, 배포 구조까지 함께 고려해 설계했습니다.</li>
+        </ul>
+        <div class="stack">
+          <span class="pill">Spring Boot</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">Redis</span>
+          <span class="pill">WebSocket/STOMP</span>
+          <span class="pill">FCM</span>
+          <span class="pill">FastAPI</span>
+          <span class="pill">Docker</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/xixvivji/z-invest" target="_blank" rel="noopener">GitHub Repo</a>
+        </div>
       </div>
 
       <div class="card two-cards">
@@ -388,11 +444,39 @@
           <b>LUMEN / SmartCane - AI 기반 시각장애인 보행 안전 서비스</b>
           <span>2026.04 - 2026.05 · 6명</span>
         </div>
+        <p class="muted" style="margin:10px 0 0;">
+          카메라로 보행 환경과 위험 요소를 실시간 감지하고 음성/햅틱 피드백을 제공하는 보행 안전 보조 서비스입니다.
+        </p>
+        <h3>담당 역할</h3>
         <ul class="list">
-          <li><strong>역할:</strong> AI 모델·데이터·인프라</li>
-          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/C102_LUMEN_PROJECT" target="_blank" rel="noopener">xixvivji/C102_LUMEN_PROJECT</a></li>
-          <li>카메라 기반으로 보도, 차도, 점자블록, 횡단보도, 신호등, 장애물 등 보행 위험 요소를 감지하고 음성/햅틱 피드백을 제공하는 서비스입니다.</li>
+          <li>AI 모델·데이터·인프라</li>
+          <li>실환경 데이터 수집/라벨링, YOLOv11 재학습, 추론 서버 및 폴백 구조 설계 담당</li>
         </ul>
+        <h3>구현 포인트</h3>
+        <ul class="list">
+          <li>야간, 역광, 측면 환경에서 인식 성능이 낮아지는 원인을 데이터 편중으로 분석했습니다.</li>
+          <li>12,000장 이상의 실환경 이미지를 수집·라벨링하고 YOLOv11 기반 재학습을 진행했습니다.</li>
+          <li>SegFormer 기반 보행 환경 분류와 YOLO 객체 탐지 결과를 조합해 보행 판단 파이프라인을 구성했습니다.</li>
+          <li>고사양 기기는 온디바이스 추론, 저사양 기기는 EC2 추론 서버로 폴백하는 이중 추론 구조를 설계했습니다.</li>
+        </ul>
+        <h3>성과</h3>
+        <ul class="list">
+          <li>YOLOv11 재학습으로 mAP@0.5를 0.41에서 0.78 수준으로 개선했습니다.</li>
+          <li>모델 선택보다 데이터 품질과 운영 추론 환경이 실제 서비스 성능을 결정한다는 점을 확인했습니다.</li>
+        </ul>
+        <div class="stack">
+          <span class="pill">Python</span>
+          <span class="pill">PyTorch</span>
+          <span class="pill">YOLOv11</span>
+          <span class="pill">SegFormer</span>
+          <span class="pill">FastAPI</span>
+          <span class="pill">Spring Boot</span>
+          <span class="pill">Redis</span>
+          <span class="pill">Docker</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/xixvivji/C102_LUMEN_PROJECT" target="_blank" rel="noopener">GitHub Repo</a>
+        </div>
       </div>
 
       <div class="card two-cards">
@@ -400,10 +484,35 @@
           <b>Fintech Mock Investing Platform - 리그형 모의투자 서비스</b>
           <span>Personal Project</span>
         </div>
+        <p class="muted" style="margin:10px 0 0;">
+          공용 리그 날짜를 기준으로 과거 시세를 리플레이하며 여러 사용자가 같은 시점에서 경쟁하는 모의투자 서비스입니다.
+        </p>
+        <h3>구현 포인트</h3>
         <ul class="list">
-          <li><strong>Repo:</strong> <a href="https://github.com/xixvivji/fintech-project" target="_blank" rel="noopener">xixvivji/fintech-project</a></li>
-          <li>공용 리그 날짜를 기준으로 과거 시세를 리플레이하며 여러 사용자가 같은 시점에서 경쟁하는 모의투자 서비스입니다.</li>
+          <li>시장가/지정가 주문, 체결내역, 미체결 주문, 보유 종목, 수익률 랭킹, 리그 운영 상태를 구현했습니다.</li>
+          <li>모든 사용자가 같은 기준일로 평가되도록 공용 리그 날짜 모델을 설계했습니다.</li>
+          <li>외부 KIS API 의존을 줄이기 위해 `daily_price` DB 캐시 구조와 요청 범위 커버 검사를 도입했습니다.</li>
+          <li>2015-01-01부터 2025-12-31까지 일봉 데이터를 선적재하는 백필 API와 자동화 스크립트를 구성했습니다.</li>
         </ul>
+        <h3>기술 이슈</h3>
+        <ul class="list">
+          <li>read-only 트랜잭션에서 가격 캐시 INSERT가 실패하는 문제를 트랜잭션 경계 조정으로 해결했습니다.</li>
+          <li>PostgreSQL 예약어 충돌, 백필 청크 경계 누락, partial-hit 캐시 문제를 분리해 수정했습니다.</li>
+          <li>백필 결과 예시 기준 50개 종목, 124,982 rows 데이터를 적재했습니다.</li>
+        </ul>
+        <div class="stack">
+          <span class="pill">Spring Boot</span>
+          <span class="pill">JPA</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">Redis</span>
+          <span class="pill">RabbitMQ</span>
+          <span class="pill">WebSocket</span>
+          <span class="pill">React</span>
+          <span class="pill">Docker Compose</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/xixvivji/fintech-project" target="_blank" rel="noopener">GitHub Repo</a>
+        </div>
       </div>
     </section>
 
