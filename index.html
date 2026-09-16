@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>김지원 Portfolio</title>
+  <title>김지원 | Backend · Infra · AI Serving</title>
+  <meta name="description" content="김지원의 백엔드 개발 포트폴리오. Spring Boot 업무 시스템, 데이터 검증, AWS 인프라와 AI 서비스 연동 경험을 소개합니다." />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
@@ -189,9 +190,11 @@
     .pill.dim { color: var(--muted); }
 
     .proj-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline;}
-    .proj-head b { margin-bottom: 0; font-size: 18px; color: var(--accent); }
+    .proj-head h3 { margin: 0; font-size: 18px; color: var(--accent); }
     .proj-head span { font-size: 13px; color: var(--muted); }
 
+    .project-focus { color: var(--text); font-size: 14px; font-weight: 700; line-height: 1.7; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
     .links { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
     .list { margin: 10px 0; padding-left: 20px; line-height: 1.8; color: #d1d9e6; }
     .two-cards { margin-top: 14px; }
@@ -235,10 +238,10 @@
         color: black;
       }
       .panel section { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #ccc; page-break-inside: avoid; }
-      .hero p, .muted, .list { color: #333; }
+      .hero p, .muted, .list, .project-focus { color: #333; }
       .pill, .meta-chip { border: 1px solid #666; color: #333; background: none; }
       a { color: #000; text-decoration: none; }
-      h1, h2, h3, .proj-head b { color: black !important; }
+      h1, h2, h3, .proj-head h3 { color: black !important; }
     }
   </style>
 </head>
@@ -250,13 +253,13 @@
       <h1>김지원 — Backend · Infra · AI Serving</h1>
       <p>
         Java/Spring Boot 기반 백엔드 개발자입니다.<br>
-        API 구현에서 끝내지 않고, 캐싱·실시간 처리·배포 자동화·운영 장애 진단까지 서비스가 실제로 안정적으로 동작하는 구조를 고민합니다.
+        업무 규칙과 데이터 검증을 API로 구현하고, 권한·승인·변경 이력을 통해 처리 결과를 추적할 수 있게 만듭니다.<br>최근에는 금융생활 변화 알림과 식품 회수 대응 시스템에서 AI 연동과 검증 가능한 업무 흐름에 집중하고 있습니다.
       </p>
 
       <div class="hero-meta">
         <span class="meta-chip">Java · Spring Boot</span>
         <span class="meta-chip">Docker · Nginx · Jenkins</span>
-        <span class="meta-chip">SSAFY 2025.07 - 2026.06</span>
+        <span class="meta-chip">FastAPI · PostgreSQL · AWS</span>
       </div>
 
       <div class="hero-actions">
@@ -277,7 +280,7 @@
   <main class="panel">
     <section id="main">
       <h2>Main</h2>
-      <p class="muted">백엔드, 인프라, AI Serving 경험을 중심으로 정리했습니다.</p>
+      <p class="muted">업무 도메인을 이해하고, 구현 결과를 데이터와 검증 기록으로 설명합니다.</p>
 
       <div class="grid">
         <div class="card">
@@ -306,10 +309,10 @@
       <div class="card two-cards">
         <b>About</b>
         <ul class="list">
-          <li>Java/Spring Boot 기반으로 REST API, 인증, 데이터 모델링, 거래/상태 흐름을 구현해왔습니다.</li>
+          <li>Java/Spring Boot로 인증·권한, 승인과 상태 전이, 데이터 모델링을 구현해왔습니다.</li>
           <li>Redis 캐싱, WebSocket/STOMP, FCM을 활용해 반복 요청과 실시간 알림 흐름을 개선했습니다.</li>
           <li>Docker, Nginx, Jenkins, AWS EC2 기반으로 배포 자동화와 운영 환경 문제 해결을 경험했습니다.</li>
-          <li>AI 서비스에서는 데이터 수집/라벨링, 모델 개선, 추론 서버 폴백 구조까지 함께 설계했습니다.</li>
+          <li>AI 서비스에서는 데이터 수집·모델 개선뿐 아니라 응답 검증과 장애 폴백, 합성 데이터 기반 업무 검증까지 다룹니다.</li>
         </ul>
       </div>
     </section>
@@ -324,6 +327,9 @@
           <div class="stack">
             <span class="pill">Java</span>
             <span class="pill">Spring Boot</span>
+            <span class="pill">Spring Security</span>
+            <span class="pill">JPA · JDBC</span>
+            <span class="pill">Flyway</span>
           </div>
         </div>
 
@@ -341,6 +347,7 @@
           <div class="stack">
             <span class="pill">AWS EC2</span>
             <span class="pill">AWS S3</span>
+            <span class="pill">AWS RDS</span>
             <span class="pill">Docker</span>
             <span class="pill">Nginx</span>
             <span class="pill">Jenkins</span>
@@ -359,164 +366,48 @@
     </section>
 
     <section id="projects">
-      <h2>Featured Projects</h2>
-      <p class="muted">프로젝트별 문제 정의, 담당 역할, 구현 포인트를 정리했습니다.</p>
-
-      <div class="card">
-        <div class="proj-head">
-          <b>MUNG! - 유기견 입양·사후관리 통합 플랫폼</b>
-          <span>2026.01 - 2026.02 · 6명</span>
-        </div>
-        <p class="muted" style="margin:10px 0 0;">
-          보호소, 입양자, 봉사자가 입양 신청부터 화상 상담과 사후관리까지 한 흐름에서 처리할 수 있는 플랫폼입니다.
-        </p>
-        <h3>담당 역할</h3>
-        <ul class="list">
-          <li>Backend 30%, Infra/DevOps 100%</li>
-          <li>입양 단계 상태 전환, RBAC 접근 제어, 운영 배포 구조, OpenVidu 화상 상담 환경 담당</li>
-        </ul>
-        <h3>구현 포인트</h3>
-        <ul class="list">
-          <li>입양 6단계 프로세스를 상태 기반 모델로 설계하고 보호소/입양자/관리자 권한을 분리했습니다.</li>
-          <li>OpenVidu를 별도 EC2에서 운영하고, Nginx 경로 기반 라우팅으로 API 트래픽과 WebRTC 트래픽을 분리했습니다.</li>
-          <li>Jenkins, Docker Compose, Nginx를 이용해 배포 파이프라인과 운영 진입점을 구성했습니다.</li>
-          <li>Prometheus/Grafana 모니터링을 도입해 서버 상태와 장애 추적 지표를 확인할 수 있게 했습니다.</li>
-        </ul>
-        <h3>트러블슈팅</h3>
-        <ul class="list">
-          <li>EC2 배포 후 화상 상담 연결 실패를 보안 그룹, 포트 요구사항, Nginx 라우팅 문제로 분리해 진단했습니다.</li>
-          <li>SDK와 서버 버전 불일치로 인한 연결 불안정성을 동일 계열 버전으로 고정해 완화했습니다.</li>
-        </ul>
-        <div class="stack">
-          <span class="pill">Spring Boot</span>
-          <span class="pill">JPA</span>
-          <span class="pill">MySQL</span>
-          <span class="pill">Docker</span>
-          <span class="pill">Nginx</span>
-          <span class="pill">Jenkins</span>
-          <span class="pill">OpenVidu</span>
-          <span class="pill">Prometheus</span>
-          <span class="pill">Grafana</span>
-        </div>
-        <div class="links">
-          <a class="btn primary" href="https://github.com/xixvivji/mung-shall" target="_blank" rel="noopener">GitHub Repo</a>
-        </div>
-      </div>
-
-      <div class="card two-cards">
-        <div class="proj-head">
-          <b>Z멋대로 - 숏폼 기반 AI 투자·그룹 공동 투자 플랫폼</b>
-          <span>2026.03 - 2026.04 · 6명</span>
-        </div>
-        <p class="muted" style="margin:10px 0 0;">
-          숏폼 콘텐츠, AI 종목 리포트, 실시간 시세, 개인/그룹 투자 흐름을 연결한 투자 플랫폼입니다.
-        </p>
-        <h3>담당 역할</h3>
-        <ul class="list">
-          <li>Backend / Infra</li>
-          <li>KIS 주식 API 연동, 시세 스케줄링, 매수/매도 거래 흐름, FCM 알림, DB 구조 설계 담당</li>
-        </ul>
-        <h3>구현 포인트</h3>
-        <ul class="list">
-          <li>주식 시세 동기화와 주문/보유/관심종목 도메인을 Spring Boot 기반 API로 구현했습니다.</li>
-          <li>반복 Polling으로 발생하던 지연과 요청 부하를 줄이기 위해 WebSocket/STOMP 기반 Push 구조를 적용했습니다.</li>
-          <li>FCM을 활용해 투자 관련 알림 흐름을 구성하고, Redis TTL 캐싱으로 반복 조회 부담을 낮췄습니다.</li>
-          <li>AI 서버와 백엔드 API를 분리해 숏폼 STT/요약/종목 리포트 흐름이 확장 가능하도록 구성했습니다.</li>
-        </ul>
-        <h3>성과</h3>
-        <ul class="list">
-          <li>Redis 캐싱 적용으로 주요 조회 API 응답 속도를 약 480ms에서 90ms 수준으로 개선했습니다.</li>
-          <li>실시간 요구사항을 전송 방식, 캐싱, 알림, 배포 구조까지 함께 고려해 설계했습니다.</li>
-        </ul>
-        <div class="stack">
-          <span class="pill">Spring Boot</span>
-          <span class="pill">PostgreSQL</span>
-          <span class="pill">Redis</span>
-          <span class="pill">WebSocket/STOMP</span>
-          <span class="pill">FCM</span>
-          <span class="pill">FastAPI</span>
-          <span class="pill">Docker</span>
-        </div>
-        <div class="links">
-          <a class="btn primary" href="https://github.com/xixvivji/z-invest" target="_blank" rel="noopener">GitHub Repo</a>
-        </div>
-      </div>
-
-      <div class="card two-cards">
-        <div class="proj-head">
-          <b>LUMEN / SmartCane - AI 기반 시각장애인 보행 안전 서비스</b>
-          <span>2026.04 - 2026.05 · 6명</span>
-        </div>
-        <p class="muted" style="margin:10px 0 0;">
-          카메라로 보행 환경과 위험 요소를 실시간 감지하고 음성/햅틱 피드백을 제공하는 보행 안전 보조 서비스입니다.
-        </p>
-        <h3>담당 역할</h3>
-        <ul class="list">
-          <li>AI 모델·데이터·인프라</li>
-          <li>실환경 데이터 수집/라벨링, YOLOv11 재학습, 추론 서버 및 폴백 구조 설계 담당</li>
-        </ul>
-        <h3>구현 포인트</h3>
-        <ul class="list">
-          <li>야간, 역광, 측면 환경에서 인식 성능이 낮아지는 원인을 데이터 편중으로 분석했습니다.</li>
-          <li>12,000장 이상의 실환경 이미지를 수집·라벨링하고 YOLOv11 기반 재학습을 진행했습니다.</li>
-          <li>SegFormer 기반 보행 환경 분류와 YOLO 객체 탐지 결과를 조합해 보행 판단 파이프라인을 구성했습니다.</li>
-          <li>고사양 기기는 온디바이스 추론, 저사양 기기는 EC2 추론 서버로 폴백하는 이중 추론 구조를 설계했습니다.</li>
-        </ul>
-        <h3>성과</h3>
-        <ul class="list">
-          <li>YOLOv11 재학습으로 mAP@0.5를 0.41에서 0.78 수준으로 개선했습니다.</li>
-          <li>모델 선택보다 데이터 품질과 운영 추론 환경이 실제 서비스 성능을 결정한다는 점을 확인했습니다.</li>
-        </ul>
-        <div class="stack">
-          <span class="pill">Python</span>
-          <span class="pill">PyTorch</span>
-          <span class="pill">YOLOv11</span>
-          <span class="pill">SegFormer</span>
-          <span class="pill">FastAPI</span>
-          <span class="pill">Spring Boot</span>
-          <span class="pill">Redis</span>
-          <span class="pill">Docker</span>
-        </div>
-        <div class="links">
-          <a class="btn primary" href="https://github.com/xixvivji/C102_LUMEN_PROJECT" target="_blank" rel="noopener">GitHub Repo</a>
-        </div>
-      </div>
-
-      <div class="card two-cards">
-        <div class="proj-head">
-          <b>Fintech Mock Investing Platform - 리그형 모의투자 서비스</b>
-          <span>Personal Project</span>
-        </div>
-        <p class="muted" style="margin:10px 0 0;">
-          공용 리그 날짜를 기준으로 과거 시세를 리플레이하며 여러 사용자가 같은 시점에서 경쟁하는 모의투자 서비스입니다.
-        </p>
-        <h3>구현 포인트</h3>
-        <ul class="list">
-          <li>시장가/지정가 주문, 체결내역, 미체결 주문, 보유 종목, 수익률 랭킹, 리그 운영 상태를 구현했습니다.</li>
-          <li>모든 사용자가 같은 기준일로 평가되도록 공용 리그 날짜 모델을 설계했습니다.</li>
-          <li>외부 KIS API 의존을 줄이기 위해 `daily_price` DB 캐시 구조와 요청 범위 커버 검사를 도입했습니다.</li>
-          <li>2015-01-01부터 2025-12-31까지 일봉 데이터를 선적재하는 백필 API와 자동화 스크립트를 구성했습니다.</li>
-        </ul>
-        <h3>기술 이슈</h3>
-        <ul class="list">
-          <li>read-only 트랜잭션에서 가격 캐시 INSERT가 실패하는 문제를 트랜잭션 경계 조정으로 해결했습니다.</li>
-          <li>PostgreSQL 예약어 충돌, 백필 청크 경계 누락, partial-hit 캐시 문제를 분리해 수정했습니다.</li>
-          <li>백필 결과 예시 기준 50개 종목, 124,982 rows 데이터를 적재했습니다.</li>
-        </ul>
-        <div class="stack">
-          <span class="pill">Spring Boot</span>
-          <span class="pill">JPA</span>
-          <span class="pill">PostgreSQL</span>
-          <span class="pill">Redis</span>
-          <span class="pill">RabbitMQ</span>
-          <span class="pill">WebSocket</span>
-          <span class="pill">React</span>
-          <span class="pill">Docker Compose</span>
-        </div>
-        <div class="links">
-          <a class="btn primary" href="https://github.com/xixvivji/fintech-project" target="_blank" rel="noopener">GitHub Repo</a>
-        </div>
-      </div>
+      <h2>Selected Projects</h2>
+      <p class="muted">업무 흐름과 데이터 신뢰성, 배포와 AI 연동 경험을 보여주는 5개 프로젝트입니다.</p>
+      <article class="card two-cards">
+        <div class="proj-head"><h3>ALZ&#x27;s well — 금융생활 변화 알림·행원 업무 지원</h3><span>2026 · AWS staging 검증</span></div>
+        <p class="muted">금융생활의 변화를 고객에게 안내하고, 고객 응답부터 행원의 사건 검토까지 연결하는 서비스입니다.</p>
+        <p class="project-focus">핵심 구현 · 업무 API / 권한 분리 / AI 응답 검증 / AWS</p>
+        <ul class="list"><li>고객·행원·관리자 채널을 분리하고, 고객 데이터 소유권과 역할별 접근 권한을 서버에서 검증합니다.</li><li>FastAPI의 개인 기준선 변화 분석과 문서 검색을 연결하고, Spring에서 응답 수치·안내 문장을 재검증하며 장애 시 폴백합니다.</li><li>업무 EC2·AI EC2·Private RDS로 환경을 분리하고, 합성 회원 300명·계좌 600개·거래 216,000건의 적재 및 역할별 API/BFF 흐름을 검증했습니다.</li><li>검증 범위는 합성 데이터 기반 staging이며, 실제 금융 고객 대상 운영 성과와 구분합니다.</li></ul>
+        <div class="stack"><span class="pill">Java 21</span><span class="pill">Spring Boot</span><span class="pill">PostgreSQL</span><span class="pill">Flyway</span><span class="pill">FastAPI</span><span class="pill">Next.js</span><span class="pill">AWS EC2 · RDS</span></div>
+        <div class="links"><a class="btn primary" href="https://github.com/xixvivji/alzs-well" target="_blank" rel="noopener">GitHub Repo</a><a class="btn ghost" href="https://github.com/xixvivji/alzs-well/blob/develop/docs/RELEASE_V0_1_4.md" target="_blank" rel="noopener">검증 기록</a></div>
+      </article>
+      <article class="card two-cards">
+        <div class="proj-head"><h3>WeCall — 식품 유통 회수 대응 관리</h3><span>2026 · 개발 중인 MVP</span></div>
+        <p class="muted">회수 조건 승인부터 대상 재고·출고 판정, 증거 보완, 대응 작업과 사건 종료까지 추적하는 B2B 서비스입니다.</p>
+        <p class="project-focus">핵심 구현 · 상태 전이 / 데이터 추적 / 승인·권한 / 업무 흐름 검증</p>
+        <ul class="list"><li>CSV 등록 데이터와 회수 조건을 버전으로 관리하고, 증거 승인 후 새 판정을 생성해 기존 결과와 비교할 수 있습니다.</li><li>검토자와 실행 담당자의 권한을 분리하고, 미확인 출고·미처리 작업이 있으면 사건 종료를 차단합니다. 종료·재개 당시 점검 결과도 보존합니다.</li><li>9월 13일 합성 업무 검증 기록 기준 백엔드 테스트 95개, Playwright 검사 8개와 HTTP 회수·종료 시나리오를 통과했습니다.</li><li>FastAPI 조건 추출 연동은 모의 응답으로 검증했습니다. 실제 AI 모델·OCR·운영 배포는 후속 개발 범위입니다.</li></ul>
+        <div class="stack"><span class="pill">Java 21</span><span class="pill">Spring Boot</span><span class="pill">Spring JDBC</span><span class="pill">PostgreSQL</span><span class="pill">Flyway</span><span class="pill">Vue 3 · TypeScript</span><span class="pill">FastAPI</span></div>
+        <div class="links"><a class="btn primary" href="https://github.com/xixvivji/WeCall" target="_blank" rel="noopener">GitHub Repo</a><a class="btn ghost" href="https://github.com/xixvivji/WeCall/blob/develop/docs/validation/report-2026-09-13.md" target="_blank" rel="noopener">검증 기록</a></div>
+      </article>
+      <article class="card two-cards">
+        <div class="proj-head"><h3>MUNG! — 유기견 입양 지원 플랫폼</h3><span>2026.01 – 2026.02 · 팀 프로젝트</span></div>
+        <p class="muted">설문 기반 추천, 훈련 영상 분석, 화상 상담을 입양 지원 흐름으로 연결한 플랫폼입니다.</p>
+        <p class="project-focus">담당 · 인프라·배포 안정화 / 백엔드 추천·매칭</p>
+        <ul class="list"><li>매칭 DTO와 서비스를 분리하고 코사인 유사도, Redis 캐싱, Spring Batch 스케줄러로 추천 파이프라인을 구성했습니다.</li><li>OpenVidu 연결 실패를 프록시 경로·CORS·포트 정책으로 나누어 진단하고 Nginx 라우팅과 노출 포트를 정리했습니다.</li><li>Docker Compose·Jenkins의 서비스별 환경설정과 실행 경로를 정리하고 Prometheus·Grafana로 운영 지표를 확인했습니다.</li></ul>
+        <div class="stack"><span class="pill">Spring Boot</span><span class="pill">Spring Batch</span><span class="pill">MySQL</span><span class="pill">Redis</span><span class="pill">Docker</span><span class="pill">Nginx</span><span class="pill">Jenkins</span><span class="pill">OpenVidu</span></div>
+        <div class="links"><a class="btn primary" href="https://github.com/xixvivji/mung-shall" target="_blank" rel="noopener">GitHub Repo</a></div>
+      </article>
+      <article class="card two-cards">
+        <div class="proj-head"><h3>Z멋대로 — 숏폼 기반 투자 플랫폼</h3><span>2026.03 – 2026.04 · 팀 프로젝트</span></div>
+        <p class="muted">숏폼 콘텐츠, AI 종목 리포트, 실시간 시세와 개인·그룹 투자 기능을 연결한 플랫폼입니다.</p>
+        <p class="project-focus">담당 · KIS 연동·스케줄링 / 매수·매도 / DB / FCM 알림</p>
+        <ul class="list"><li>KIS 주식 API 연동과 시세 스케줄링, 매수·매도 거래 흐름 및 데이터베이스 구조를 구현했습니다.</li><li>FCM 푸시 알림과 프로젝트 공통 기능을 기획·개발했습니다.</li><li>프로젝트는 Spring Boot 백엔드, FastAPI AI 서버, Redis와 WebSocket/STOMP를 조합해 투자 정보와 실시간 흐름을 제공합니다.</li></ul>
+        <div class="stack"><span class="pill">Spring Boot</span><span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">WebSocket/STOMP</span><span class="pill">FCM</span><span class="pill">FastAPI</span></div>
+        <div class="links"><a class="btn primary" href="https://github.com/xixvivji/z-invest" target="_blank" rel="noopener">GitHub Repo</a></div>
+      </article>
+      <article class="card two-cards">
+        <div class="proj-head"><h3>LUMEN / SmartCane — AI 보행 안전 지원</h3><span>2026.04 – 2026.05 · 팀 프로젝트</span></div>
+        <p class="muted">보행 환경과 장애물을 감지하고 음성·햅틱 피드백으로 안내하는 시각장애인 보행 보조 서비스입니다.</p>
+        <p class="project-focus">담당 · AI 모델·데이터 / 추론 환경</p>
+        <ul class="list"><li>실환경 이미지 수집·라벨링과 YOLOv11 재학습을 통해 보행 환경의 객체 탐지 개선에 참여했습니다.</li><li>프로젝트는 SegFormer 기반 보행로 분류와 YOLO 객체 탐지를 결합해 보행 판단 및 음성 안내를 제공합니다.</li><li>보행 중 감지한 위험 요소를 서버에 누적하고, 위험지도에서 유형별 위치와 신고 사진을 확인할 수 있습니다.</li></ul>
+        <div class="stack"><span class="pill">Python</span><span class="pill">PyTorch</span><span class="pill">YOLOv11</span><span class="pill">SegFormer</span><span class="pill">AI Serving</span></div>
+        <div class="links"><a class="btn primary" href="https://github.com/xixvivji/C102_LUMEN_PROJECT" target="_blank" rel="noopener">GitHub Repo</a></div>
+      </article>
     </section>
 
     <section id="contact">
@@ -548,7 +439,7 @@
     </section>
   </main>
 
-  <footer>© 2026 · Built with GitHub Pages</footer>
+  <footer>© 2026 김지원 · 내용 업데이트 2026.09.16 · GitHub Pages</footer>
 </div>
 
 <script>
